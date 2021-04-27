@@ -86,11 +86,12 @@ hash = Hash[:firstname => firstname_input, :lastname => lastname_input, :salary 
 table = TTY::Table.new(["First Name","Last name","Salary","Active"], 
 [["#{hash[:firstname]}", "#{hash[:lastname]}", "#{hash[:salary]}", "#{hash[:active]}"], ["b1", "b2"]])
 
-# puts table.render(:ascii)
-id_index = []
-table.each_with_index  { |row, index| 
+puts table.render(:ascii)
+p table[0]
+# id_index = []
+# table.each_with_index  { |row, index| 
 
-id_index << row
+# id_index << row
 
-}
-p id_index
+# }
+# p id_index
