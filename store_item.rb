@@ -67,21 +67,31 @@ listItem = List.new(firstname_input, lastname_input, salary_input, active_input)
 personArr = firstname_input, lastname_input, salary_input, active_input
 
 
-# hash = Hash[personArr.collect { |key| [key, " " ] }]
 hash = Hash[:firstname => firstname_input, :lastname => lastname_input, :salary => salary_input, :active => active_input, :full_name => firstname_input + " " + lastname_input]
 
-
+hashArr = [hash]
+p hashArr
 
 # p hash 
-table = TTY::Table.new(["First Name","Last name","Salary","Active"], 
-[["#{hash[:firstname]}", "#{hash[:lastname]}", "#{hash[:salary]}", "#{hash[:active]}"], ["b1", "b2"]])
+table = TTY::Table.new(["ID","First Name","Last name","Salary","Active"], 
+[["#{hash[:firstname]}", "#{hash[:lastname]}", "#{hash[:salary]}", "#{hash[:active]}"]])
+
+id = []
+index = 1
+while index < table.length
+  id << index
+  index +=1
+end
+# p id
+i = 0
+table.row(i) { |row| row[i] << id 
+}
 
 puts table.render(:ascii)
-p table[0]
-id_index = []
-table.each_with_index  { |row, index| 
+# p table
 
-id_index << row
 
-}
-p id_index
+
+
+
+
